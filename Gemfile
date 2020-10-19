@@ -28,6 +28,13 @@ gem 'jbuilder', '~> 2.7'
 # Rubocop Linter
 gem 'rubocop', '~>0.81.0'
 
+# Bootstrap
+gem 'bootstrap', '~> 5.0.0.alpha1'
+gem 'jquery-rails'
+
+# Simple forms
+gem 'simple_form', '~> 5.0', '>= 5.0.3'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -43,6 +50,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Provides a better error page for Rails and other Rack apps. Includes source code inspection,
+  # a live REPL and local/instance variable inspection for all stack frames.
+  gem 'better_errors', '~> 2.8', '>= 2.8.3'
 end
 
 group :test do
