@@ -10,14 +10,46 @@
   </head>
 
   <body>
-    <div class="text-center"><%= notice %></div>
-    <div class="text-center"><%= alert %></div>
-    <% if current_user %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-    <% else %>
-      <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary"%>
-      <%= link_to 'Sign in', new_user_session_path, class: "btn btn-success"%>
-    <% end %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="collapse navbar-collapse justify-content-end pr-2" id="navbarNav">
+        <ul class="navbar-nav">
+          <% if current_user %>
+            <li class="nav-item mr-2">
+              <%# <a class="btn btn-sm btn-info" href="#"><%= current_user.username %>
+              <%= link_to current_user.username, "/users/#{current_user.id}", class: "btn btn-sm btn-info" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm" %>
+            </li>
+          <% else %>
+            <li class="nav-item mr-2">
+              <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-sm btn-info"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign in', new_user_session_path, class: "btn btn-sm btn-success"%>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="nav flex-column bg-dark mh-100 w-25">
+      <a class="nav-link active" href="#">Active</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="#">Link</a>
+    </nav>
+
+    <% if flash[:notice] %>
+  		<div class="alert alert-info text-center">
+  			<%= notice %>
+  		</div>
+  	<% end %>
+  	<% if flash[:alert] %>
+  		<div class="alert alert-danger text-center">
+  			<%= alert %>
+  		</div>
+  	<% end %>
+
     <div class="container">
       <%= yield %>
     </div>

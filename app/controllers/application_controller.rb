@@ -3,8 +3,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :is_admin!
 
-  private
-
   # def is_admin!
   #   if current_user && current_user.admin
   #   else
@@ -15,7 +13,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
+    added_attrs = %i[username email password password_confirmation remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end

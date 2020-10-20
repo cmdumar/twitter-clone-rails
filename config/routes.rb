@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :opinions
   devise_for :users
 
+  get 'users/:id' => 'users#show'
+
   post "follow/account" => "users#follow_account", as: :follow_account
 
   root 'opinions#index'
