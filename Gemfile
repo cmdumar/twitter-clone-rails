@@ -35,6 +35,9 @@ gem 'jquery-rails'
 # Simple forms
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 
+# Devise
+gem 'devise'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
