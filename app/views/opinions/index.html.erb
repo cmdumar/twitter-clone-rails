@@ -1,29 +1,49 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Opinions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @opinions.each do |opinion| %>
-      <tr>
-        <td><%= opinion.content %></td>
-        <td><%= opinion.user_id %></td>
-        <td><%= link_to 'Show', opinion %></td>
-        <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
-        <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Opinion', new_opinion_path %>
+<div class="row p-4 justify-content-center">
+    <div class="row col-9">
+      <div class="col-12 bg-white p-4 rounded-sm">
+        <%= render 'form', opinion: @opinion %>
+      </div>
+      <div class="col-12 bg-white mt-2 p-4 rounded-sm">
+        <p class="text-primary"><%= current_user.opinions.count %> NEW TWEETS</p>
+        <hr class="text-dark">
+        <% current_user.opinions.each do |opinion| %>
+          <div class="card border-0">
+            <div class="d-flex align-items-center">
+              <div class="w-auto">
+                <img src="https://source.unsplash.com/3NS4GaR0q3c/640x426" class="img-thumb rounded-sm" alt="...">
+              </div>
+              <div class="card-body w-100">
+                <p class="mb-0 text-capitalize tx-normal">
+                  <%= opinion.user.username %>
+                </p>
+                <p class="text-muted mb-0 font-weight-light tx-sm">
+                  <%= opinion.content %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-3 rounded-sm">
+      <p class="text-muted tx-normal">WHO TO FOLLOW</p>
+      <hr class="text-dark">
+      <% User.all.each do |user| %>
+        <div class="card border-0 bg-transparent">
+          <div class="d-flex align-items-center">
+          <div class="w-auto">
+            <img src="https://source.unsplash.com/3NS4GaR0q3c/640x426" class="img-thumb br-round" alt="...">
+          </div>
+          <div class="card-body w-100 d-flex justify-content-between align-items-center">
+              <div class="">
+                <p class="mb-0 text-capitalize tx-normal font-weight-bold"><%= user.username %></p>
+                <span class="text-muted tx-sm"><%= user.email %></span>
+              </div>
+              <div class="">
+                <%= link_to 'Follow', following_path(user.id), method: :post, class: 'btn btn-sm btn-primary rounded-pill' %>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>

@@ -9,8 +9,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-4">
       <div class="collapse navbar-collapse justify-content-end pr-2" id="navbarNav">
         <ul class="navbar-nav">
           <% if current_user %>
@@ -33,24 +33,25 @@
       </div>
     </nav>
 
-    <nav class="nav flex-column bg-dark mh-100 w-25">
+    <nav class="nav flex-column bg-dark h-100 w-25 position-fixed top-0">
       <a class="nav-link active" href="#">Active</a>
       <a class="nav-link" href="#">Link</a>
       <a class="nav-link" href="#">Link</a>
     </nav>
 
-    <% if flash[:notice] %>
-  		<div class="alert alert-info text-center">
-  			<%= notice %>
-  		</div>
-  	<% end %>
-  	<% if flash[:alert] %>
-  		<div class="alert alert-danger text-center">
-  			<%= alert %>
-  		</div>
-  	<% end %>
+    
 
-    <div class="container">
+    <div class="container-fluid pd-25">
+      <% if flash[:notice] %>
+        <div class="alert alert-info text-center">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger text-center">
+          <%= alert %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>

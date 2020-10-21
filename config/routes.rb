@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   resources :opinions
   devise_for :users
 
-  get 'users/:id' => 'users#show'
+  resources :following, only: [:create, :destroy]
 
-  post "follow/account" => "users#follow_account", as: :follow_account
+  get 'users/:id' => 'users#show'
 
   root 'opinions#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

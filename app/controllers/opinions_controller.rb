@@ -5,7 +5,9 @@ class OpinionsController < ApplicationController
   # GET /opinions
   # GET /opinions.json
   def index
-    @opinions = Opinion.all
+    @opinions = Opinion.all.order("created_at DESC")
+    @opinion = Opinion.new
+    @users = User.all
   end
 
   # GET /opinions/1
@@ -14,7 +16,7 @@ class OpinionsController < ApplicationController
 
   # GET /opinions/new
   def new
-    @opinion = Opinion.new
+    @opinion = current_user.opinions.build
   end
 
   # GET /opinions/1/edit
@@ -23,15 +25,13 @@ class OpinionsController < ApplicationController
   # POST /opinions
   # POST /opinions.json
   def create
-    @opinion = Opinion.new(opinion_params)
-    @opinion.user = current_user
-
+    @opinion = current_user.opinions.build(opinion_params)
     respond_to do |format|
       if @opinion.save
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
-        format.json { render :show, status: :created, location: @opinion }
+        format.html { redirect_to root_path, notice: 'Opinion was successfully created.' }
+        format.json { render root_path, status: :created, location: @opinion }
       else
-        format.html { render :new }
+        format.html { render :index }
         format.json { render json: @opinion.errors, status: :unprocessable_entity }
       end
     end
