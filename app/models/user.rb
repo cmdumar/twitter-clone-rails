@@ -6,7 +6,7 @@ class User < ApplicationRecord
   attr_writer :login
   validate :validate_username
 
-  has_many :opinions
+  has_many :opinions, dependent: :destroy
 
   has_many :active_relationships, class_name: 'Following', foreign_key: 'follower_id', dependent: :destroy
   has_many :passive_relationships, class_name: 'Following', foreign_key: 'followed_id', dependent: :destroy

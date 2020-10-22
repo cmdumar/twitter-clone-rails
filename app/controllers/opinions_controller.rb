@@ -1,13 +1,13 @@
 class OpinionsController < ApplicationController
   before_action :set_opinion, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!
   # before_action :is_admin!, except: [:index, :show]
   # GET /opinions
   # GET /opinions.json
   def index
     @opinions = Opinion.all.order("created_at DESC")
     @opinion = Opinion.new
-    @users = User.all
+    @follows = User.all - current_user.following - [current_user]
   end
 
   # GET /opinions/1
@@ -26,6 +26,7 @@ class OpinionsController < ApplicationController
   # POST /opinions.json
   def create
     @opinion = current_user.opinions.build(opinion_params)
+    @follows = User.all - current_user.following - [current_user]
     respond_to do |format|
       if @opinion.save
         format.html { redirect_to root_path, notice: 'Opinion was successfully created.' }

@@ -1,0 +1,18 @@
+<%= nothingFound(users) %>
+<% users.each do |user| %>
+  <div class="card border-0 bg-transparent">
+    <div class="d-flex align-items-center">
+    <div class="w-auto">
+      <img src="https://source.unsplash.com/3NS4GaR0q3c/640x426" class="img-thumb br-round" alt="...">
+    </div>
+    <div class="card-body w-100 d-flex justify-content-between align-items-center">
+        <div class="">
+          <p class="mb-0 text-capitalize tx-normal font-weight-bold"><%= user.username %></p>
+          <span class="text-muted tx-sm"><%= user.email %></span>
+        </div>
+        <div class="">
+          <%= link_to 'Follow', following_index_path(user_id: user.id), method: :post, class: 'btn btn-sm btn-primary rounded-pill' %>
+        </div>
+    </div>
+  </div>
+<% end %>

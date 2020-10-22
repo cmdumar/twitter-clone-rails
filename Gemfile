@@ -32,6 +32,9 @@ gem 'rubocop', '~>0.81.0'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'jquery-rails'
 
+# Font Awesome
+gem "font-awesome-rails"
+
 # Simple forms
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 
