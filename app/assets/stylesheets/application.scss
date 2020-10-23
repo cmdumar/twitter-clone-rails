@@ -18,6 +18,34 @@
 @import "bootstrap";
 @import "font-awesome";
 
+.avatar {
+  position: relative;
+  width: 50%;
+  display: block;
+  margin: 10px auto;
+}
+
+.avatar-aspect-ratio {
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.avatar img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.btn-twitter {
+  min-width: calc(45.08px);
+}
+
 .primary-bg {
   background-color: #1da1f2!important;
 }
@@ -31,7 +59,6 @@
 }
 
 .cover-image {
-  background-image: url('https://source.unsplash.com/WLUHO9A_xik/1600x900');
   height: 20vh;
   padding: 0;
   margin: 0;
@@ -43,11 +70,12 @@
 .img-thumb {
   height: 49px;
   width: 49px;
+  object-fit: cover;
 }
 
 .profile-img {
-  width: 150px;
-  height: 150px;
+  width: 165px;
+  height: 175px;
 }
 
 .bg-dark-blue {

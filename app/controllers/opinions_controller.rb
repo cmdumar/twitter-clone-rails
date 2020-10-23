@@ -9,7 +9,7 @@ class OpinionsController < ApplicationController
     ids = current_user.following.pluck(:id) << current_user.id
     @opinions = Opinion.where(user_id: ids).includes([:user])
     @opinion = Opinion.new
-    @follows = User.all - current_user.following - [current_user]
+    @follows = (User.all.includes({ profile_picture_attachment: :blob })) - current_user.following - [current_user]
   end
 
   # GET /opinions/1

@@ -1,7 +1,8 @@
 <div class="nav flex-column bg-dark-blue h-100 w-15 position-fixed top-0">
   <div class="d-flex justify-content-center align-items-center py-2">
-    <img src="https://source.unsplash.com/3NS4GaR0q3c/640x426" class="img-thumb rounded-sm m-2" alt="..." />
+    <%= image_tag current_user.profile_picture, class: "img-thumb rounded-sm m-2", alt: "..." %>
     <p class="text-muted pl-2 text-uppercase mt-2"><%= current_user.username %></p>
+
   </div>
   <div class="d-flex justify-content-center align-items-center border-gray">
     <div class="border-right-gray pt-2 px-3">

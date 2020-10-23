@@ -6,6 +6,10 @@ class User < ApplicationRecord
   attr_writer :login
   validate :validate_username
 
+  has_one_attached :profile_picture
+
+  has_one_attached :cover_picture
+
   has_many :opinions, dependent: :destroy
 
   has_many :active_relationships, class_name: 'Following', foreign_key: 'follower_id', dependent: :destroy
