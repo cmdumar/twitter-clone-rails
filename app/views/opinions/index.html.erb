@@ -1,12 +1,15 @@
 <div class="row p-4 justify-content-center">
     <div class="row col-9">
       <div class="col-12 bg-white p-3 rounded-sm">
-        <%= render 'form', opinion: @opinion %>
+        <div class="">
+          <%= show_flash({class: "alert alert-info"}) %>
+        </div>
+        <%= render partial: 'shared/form', locals: { opinion: @opinion } %>
       </div>
       <div class="col-12 bg-white mt-2 p-3 rounded-sm">
         <p class="text-primary"><%= current_user.opinions.count %> NEW TWEETS</p>
         <hr class="text-dark">
-        <%= render partial: 'shared/opinions', locals: { user: current_user } %>
+        <%= render partial: 'shared/opinions', locals: { opinions: @opinions } %>
       </div>
     </div>
     <div class="col-3 p-3 rounded-sm">

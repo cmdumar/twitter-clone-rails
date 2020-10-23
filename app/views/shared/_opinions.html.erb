@@ -1,17 +1,17 @@
-<% user.opinions.each do |opinion| %>
-          <div class="card border-0">
-            <div class="d-flex align-items-center">
-              <div class="w-auto">
-                <img src="https://source.unsplash.com/3NS4GaR0q3c/640x426" class="img-thumb" alt="...">
-              </div>
-              <div class="card-body w-100">
-                <p class="mb-0 text-capitalize tx-normal">
-                  <%= opinion.user.username %>
-                </p>
-                <p class="text-muted mb-0 font-weight-light tx-sm">
-                  <%= opinion.content %>
-                </p>
-              </div>
-            </div>
-          </div>
+<% opinions.each do |opinion| %>
+  <div class="card border-0">
+    <div class="d-flex align-items-center">
+      <div class="w-auto">
+        <img src="https://source.unsplash.com/3NS4GaR0q3c/640x426" class="img-thumb" alt="...">
+      </div>
+      <div class="card-body w-100">
+        <p class="mb-0 text-capitalize tx-normal">
+          <%= opinion.user.username %>
+        </p>
+        <p class="text-muted mb-0 font-weight-light tx-sm">
+          <%= opinion.content %>
+        </p>
+      </div>
+    </div>
+  </div>
 <% end %>

@@ -5,7 +5,9 @@ class OpinionsController < ApplicationController
   # GET /opinions
   # GET /opinions.json
   def index
-    @opinions = Opinion.all.order("created_at DESC")
+    # @opinions = Opinion.all.order("created_at DESC")
+    ids = current_user.following.pluck(:id) << current_user.id
+    @opinions = Opinion.where(user_id: ids)
     @opinion = Opinion.new
     @follows = User.all - current_user.following - [current_user]
   end
@@ -26,13 +28,17 @@ class OpinionsController < ApplicationController
   # POST /opinions.json
   def create
     @opinion = current_user.opinions.build(opinion_params)
+    ids = current_user.following.pluck(:id) << current_user.id
+    @opinions = Opinion.where(user_id: ids)
     @follows = User.all - current_user.following - [current_user]
     respond_to do |format|
       if @opinion.save
-        format.html { redirect_to root_path, notice: 'Opinion was successfully created.' }
+        flash[:notice] = 'Opinion created successfully'
+        format.html { redirect_back(fallback_location: root_path) }
         format.json { render root_path, status: :created, location: @opinion }
       else
-        format.html { render :index }
+        flash[:alert] = 'Could not create post.'
+        format.html { redirect_back(fallback_location: root_path) }
         format.json { render json: @opinion.errors, status: :unprocessable_entity }
       end
     end

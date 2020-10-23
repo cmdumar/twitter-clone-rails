@@ -30,6 +30,16 @@
   font-size: 18px!important;
 }
 
+.cover-image {
+  background-image: url('https://source.unsplash.com/WLUHO9A_xik/1600x900');
+  height: 20vh;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+
 .img-thumb {
   height: 49px;
   width: 49px;
