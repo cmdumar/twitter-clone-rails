@@ -7,7 +7,7 @@ class OpinionsController < ApplicationController
   def index
     # @opinions = Opinion.all.order("created_at DESC")
     ids = current_user.following.pluck(:id) << current_user.id
-    @opinions = Opinion.where(user_id: ids)
+    @opinions = Opinion.where(user_id: ids).includes([:user])
     @opinion = Opinion.new
     @follows = User.all - current_user.following - [current_user]
   end

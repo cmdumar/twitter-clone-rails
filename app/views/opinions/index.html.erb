@@ -7,7 +7,7 @@
         <%= render partial: 'shared/form', locals: { opinion: @opinion } %>
       </div>
       <div class="col-12 bg-white mt-2 p-3 rounded-sm">
-        <p class="text-primary"><%= current_user.opinions.count %> NEW TWEETS</p>
+        <p class="text-primary"><%= @opinions.count %> NEW TWEETS</p>
         <hr class="text-dark">
         <%= render partial: 'shared/opinions', locals: { opinions: @opinions } %>
       </div>

@@ -13,13 +13,37 @@
     </div>
     <div class="col-12 mt-2 p-3">
       <div class="bg-white rounded-sm p-3">
-        <p class="text-primary"><%= @opinions.count %> NEW TWEETS</p>
+        <p class="text-primary"><%= current_user.opinions.count %> NEW TWEETS</p>
         <hr class="text-dark">
         <%= render partial: 'shared/opinions', locals: { opinions: @opinions } %>
       </div>
     </div>
   </div>
   <div class="col-3 p-3 rounded-sm border-left px-0 pt-0">
+    <div class="row">
+      <div class="col-12">
+        <div class="">
+          <img src="https://images.unsplash.com/placeholder-avatars/extra-large.jpg?auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff" class="profile-img br-round" alt="profile image" />
+        </div>
+        <div>
+          <%= @user.username %>
+          <span class="">
+            <%= @user.email %>
+          </span>
+        </div>
+      </div>
+      <div class="col-12 row">
+        <div class="col-4">
+
+        </div>
+        <div class="col-4">
+        
+        </div>
+        <div class="col-4">
+        
+        </div>
+      </div>
+    </div>
     <div class="p-3">
       <p class="text-muted tx-normal">WHO TO FOLLOW</p>
       <hr class="text-dark">

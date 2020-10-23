@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @opinion = Opinion.new
-    @opinions = Opinion.where(user_id: @user)
+    @opinions = Opinion.where(user_id: @user).includes([:user])
     @follows = User.all - @user.following - [@user]
   end
 end

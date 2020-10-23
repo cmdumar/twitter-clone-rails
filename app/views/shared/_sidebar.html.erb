@@ -15,13 +15,7 @@
   </div>
   <div class="list-group text-left text-muted">
     <div class="w-100">
-      <%= link_to (fa_icon "home", class: "text-white pr-2", text: "HOME"), root_path, class: "list-group-item list-group-item-action active primary-bg" %>
-    </div>
-    <div class="">
-      <%= link_to (fa_icon "at", class: "text-muted pr-2", text: "CONNECT"), root_path, class: "list-group-item list-group-item-action bg-transparent" %> 
-    </div>
-    <div class="">
-      <%= link_to (fa_icon "hashtag", class: "text-muted pr-2", text: "DISCOVER"), root_path, class: "list-group-item list-group-item-action bg-transparent" %>
+      <%= link_to (fa_icon "home", class: "text-white pr-2", text: "HOME"), root_path, class: "list-group-item list-group-item-action active primary-bg border-0" %>
     </div>
     <div class="">
       <%= link_to (fa_icon "user", class: "text-muted pr-2", text: "PROFILE"), "/users/#{current_user.id}", class: "list-group-item list-group-item-action bg-transparent" %>
