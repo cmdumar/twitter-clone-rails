@@ -1,7 +1,8 @@
 <div class="row justify-content-center pt-0 px-0">
   <div class="col-9 pr-0">
     <div class="col-12 px-0">
-      <%= content_tag :div, "", class: "cover-image", style: "background-image: url(#{url_for(current_user.cover_picture)})" %>
+      <%= cover_img(current_user.cover_picture, {class: "cover-image"}) %>
+      <%# <%= content_tag :div, "", class: "cover-image", style: "background-image: url(#{url_for(current_user.cover_picture)})" %>
     </div>
     <div class="col-12 p-3">
       <div class="bg-white p-3 rounded-sm">
@@ -24,7 +25,7 @@
       <div class="col-12 px-0">
       <div href="#" class="avatar">
         <div class="avatar-aspect-ratio"></div>
-        <%= image_tag @user.profile_picture, alt: "profile picture" %>
+        <%= profile_img(@user.profile_picture) %>
       </div>
       <div class="col-12">
         <p class="text-dark text-center"><%= @user.username %></p>

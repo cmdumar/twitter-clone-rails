@@ -1,6 +1,8 @@
 <div class="row p-3">
   <h3>Login</h3>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <div class="row">
       <div class="col-12 mt-3">
         <div class="form-group">
