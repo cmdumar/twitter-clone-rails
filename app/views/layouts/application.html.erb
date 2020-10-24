@@ -36,7 +36,7 @@
               <%= link_to current_user.username, "/users/#{current_user.id}", class: "btn btn-sm bg-dark-blue text-white" %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm" %>
+              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm text-white" %>
             </li>
 
           <% else %>

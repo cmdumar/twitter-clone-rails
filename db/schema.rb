@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_140951) do
+ActiveRecord::Schema.define(version: 2020_10_24_122314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2020_10_23_140951) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "text"
+    t.integer "user_id"
+    t.integer "opinion_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["opinion_id"], name: "index_comments_on_opinion_id"
   end
 
   create_table "followings", force: :cascade do |t|
@@ -70,5 +79,6 @@ ActiveRecord::Schema.define(version: 2020_10_23_140951) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "users"
   add_foreign_key "opinions", "users"
 end

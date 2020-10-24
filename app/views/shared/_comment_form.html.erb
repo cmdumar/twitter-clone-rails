@@ -1,0 +1,15 @@
+
+<%= simple_form_for(comment, url: opinion_comments_path(opinion)) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-group mt-2">
+    <p class="text-muted">Write a comment</p>
+  </div>
+  <div class="form-inputs">
+    <%= f.input :text, label: false %>
+  </div>
+
+  <div class="form-actions mt-2">
+    <%= f.button :submit, "Comment", class: "btn btn-sm primary-bg rounded-pill px-3 text-white font-weight-bold" %>
+  </div>
+<% end %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :opinions
+  resources :opinions do
+    resources :comments, only: [:create]
+  end
   devise_for :users
 
   resources :following, only: [:create, :destroy]

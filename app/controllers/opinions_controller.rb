@@ -10,6 +10,7 @@ class OpinionsController < ApplicationController
     @opinions = Opinion.where(user_id: ids).includes([:user])
     @opinion = Opinion.new
     @follows = (User.all.includes({ profile_picture_attachment: :blob })) - current_user.following - [current_user]
+    @comment = current_user.comments.build
   end
 
   # GET /opinions/1
