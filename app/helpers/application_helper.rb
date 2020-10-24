@@ -1,17 +1,17 @@
 module ApplicationHelper
-  def nothingFound(arg)
-    if arg.empty?
-      content_tag(:p, "Nothing found!")
-    end
+  def nothing_found(arg)
+    content_tag(:p, 'Nothing found!') if arg.empty?
   end
 
   def show_flash(options = {})
     output = ActiveSupport::SafeBuffer.new
 
-    [:alert, :notice].each do |message|
-      output << content_tag(:p, class: [message, options[:class]], tabindex: '0') do
+    %i[alert notice].each do |message|
+      if flash[message].present?
+        output << content_tag(:p, class: [message, options[:class]], tabindex: '0') do
           flash[message]
-      end if flash[message].present?
+        end
+      end
       flash[message] = nil
     end
 
@@ -20,9 +20,9 @@ module ApplicationHelper
 
   def profile_img(img, options = {})
     if img.attached?
-      image_tag(img, class: options[:class], alt: "Profile Picture")
+      image_tag(img, class: options[:class], alt: 'Profile Picture')
     else
-      image_tag('profile-placeholder.jpg', class: options[:class], alt: "Profile Picture")
+      image_tag('profile-placeholder.jpg', class: options[:class], alt: 'Profile Picture')
     end
   end
 
@@ -30,7 +30,7 @@ module ApplicationHelper
     if img.attached?
       content_tag(:div, nil, class: options[:class], style: "background-image: url(#{url_for(img)});")
     else
-      content_tag(:div, nil, class: options[:class], style: "background-image: url(https://fooddiversity.today/wp-content/uploads/2016/05/placeholder.png);")
+      content_tag(:div, nil, class: options[:class], style: 'background-image: url(https://fooddiversity.today/wp-content/uploads/2016/05/placeholder.png);')
     end
   end
 end

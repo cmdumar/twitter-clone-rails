@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Following, type: :model do
   before :each do
-    @user = User.create(username: 'raiyan', email: 'raiyan@mail.com', password: '123456', password_confirmation: '123456')
-    @user2 = User.create(username: 'umar28', email: 'umar28@mail.com', password: '123456', password_confirmation: '123456')
+    @user = User.create(username: 'raiyan', email: 'raiyan@mail.com', password: '123456',
+                        password_confirmation: '123456')
+    @user2 = User.create(username: 'umar28', email: 'umar28@mail.com', password: '123456',
+                         password_confirmation: '123456')
     @user.follow(@user2)
   end
 

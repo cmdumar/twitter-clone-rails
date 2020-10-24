@@ -9,7 +9,7 @@ class OpinionsController < ApplicationController
     ids = current_user.following.pluck(:id) << current_user.id
     @opinions = Opinion.where(user_id: ids).includes([:user])
     @opinion = Opinion.new
-    @follows = (User.all.includes({ profile_picture_attachment: :blob })) - current_user.following - [current_user]
+    @follows = User.all.includes({ profile_picture_attachment: :blob }) - current_user.following - [current_user]
     @comment = current_user.comments.build
   end
 
@@ -34,11 +34,11 @@ class OpinionsController < ApplicationController
     @follows = User.all - current_user.following - [current_user]
     respond_to do |format|
       if @opinion.save
-        flash[:notice] = 'Opinion created successfully'
+        flash[:notice] = 'Opinion created successfully.'
         format.html { redirect_back(fallback_location: root_path) }
         format.json { render root_path, status: :created, location: @opinion }
       else
-        flash[:alert] = 'Could not create post.'
+        flash[:alert] = @opinion.errors.full_messages.join('. ').to_s
         format.html { redirect_back(fallback_location: root_path) }
         format.json { render json: @opinion.errors, status: :unprocessable_entity }
       end

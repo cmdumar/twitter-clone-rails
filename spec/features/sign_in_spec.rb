@@ -1,6 +1,7 @@
 describe 'Login process', type: :feature do
   before :each do
-    @user = User.create(username: 'rafiya', email: 'rafiya@gmail.com', password: '123456', password_confirmation: '123456')
+    @user = User.create(username: 'rafiya', email: 'rafiya@gmail.com', password: '123456',
+                        password_confirmation: '123456')
   end
 
   it 'Login to the app' do

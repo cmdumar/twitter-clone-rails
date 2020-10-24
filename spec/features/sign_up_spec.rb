@@ -15,5 +15,4 @@ describe 'Sign up process', type: :feature do
     click_button 'Sign up'
     expect(page).to have_content 'Email can\'t be blank'
   end
-
 end
