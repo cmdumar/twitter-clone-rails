@@ -11,9 +11,7 @@
 
   <body class="bg-light">
 
-    <% if user_signed_in? %>
-      <%= render partial: 'shared/sidebar' %>
-    <% end %>
+    <%= sidebar %>
 
     <nav class="navbar navbar-expand-lg navbar-dark primary-bg py-4 ml-15">
         <%= link_to fa_icon "twitter", id: "logo-font", class: "navbar-brand pl-3" %>

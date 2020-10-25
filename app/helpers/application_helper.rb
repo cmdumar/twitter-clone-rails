@@ -33,4 +33,16 @@ module ApplicationHelper
       content_tag(:div, nil, class: options[:class], style: 'background-image: url(https://fooddiversity.today/wp-content/uploads/2016/05/placeholder.png);')
     end
   end
+
+  def sidebar
+    if user_signed_in?
+      render partial: 'shared/sidebar'
+    end
+  end
+
+  def username(current_user)
+    if current_user
+      content_tag(:h1, current_user.username)
+    end
+  end
 end
