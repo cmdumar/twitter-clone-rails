@@ -35,14 +35,10 @@ module ApplicationHelper
   end
 
   def sidebar
-    if user_signed_in?
-      render partial: 'shared/sidebar'
-    end
+    render partial: 'shared/sidebar' if user_signed_in?
   end
 
   def username(current_user)
-    if current_user
-      content_tag(:h1, current_user.username)
-    end
+    content_tag(:h1, current_user.username) if current_user
   end
 end
