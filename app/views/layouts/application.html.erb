@@ -20,17 +20,8 @@
       <div class="collapse navbar-collapse justify-content-end align-items-center pr-2" id="navbarNav">
         <ul class="navbar-nav">
           <% if current_user %>
-            <li class="nav-item pr-5">
-              <%= link_to fa_icon "pencil", class: "gray-color menu-icon"  %>
-            </li>
-            <li class="nav-item pr-5">
-              <%= link_to fa_icon "envelope", class: "gray-color menu-icon"  %>
-            </li>
-            <li class="nav-item pr-5">
-              <%= link_to fa_icon "search", class: "gray-color menu-icon" %>
-            </li>
-            <li class="nav-item pr-5">
-              <%= link_to fa_icon "cog", class: "gray-color menu-icon" %>
+            <li class="nav-item mr-3">
+              <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "btn btn-sm bg-dark-blue text-white" %>
             </li>
             <li class="nav-item mr-3">
               <%= link_to current_user.username, "/users/#{current_user.id}", class: "btn btn-sm bg-dark-blue text-white" %>

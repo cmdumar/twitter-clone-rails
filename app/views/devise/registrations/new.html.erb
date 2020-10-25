@@ -18,10 +18,10 @@
                   input_html: { autocomplete: "new-password", class: "mb-2" } %>
     </div>
     <div class="form-group mt-3">
-      <%= f.input :profile_picture, required: true, as: :file %>
+      <%= f.input :profile_picture, as: :file, direct_upload: true, hint: "Profile picture should be less than 1 MB" %>
     </div>
     <div class="form-group mt-3">
-      <%= f.input :cover_picture, required: true, as: :file %>
+      <%= f.input :cover_picture, as: :file, direct_upload: true, hint: "Cover picture should be less than 2 MB" %>
     </div>
 
     <div class="form-group row mb-0 mt-3">
