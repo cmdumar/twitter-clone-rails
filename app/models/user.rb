@@ -11,12 +11,12 @@ class User < ApplicationRecord
   has_one_attached :cover_picture
 
   validates :profile_picture, attached: false, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
-                                              size: { less_than: 1024.kilobytes },
-                                              limit: { max: 1 }
+                              size: { less_than: 1024.kilobytes },
+                              limit: { max: 1 }
 
   validates :cover_picture, attached: false, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
-                                            size: { less_than: 2048.kilobytes },
-                                            limit: { max: 1 }
+                            size: { less_than: 2048.kilobytes },
+                            limit: { max: 1 }
 
   has_many :opinions, dependent: :destroy
   has_many :comments, dependent: :destroy
