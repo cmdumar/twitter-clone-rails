@@ -4,7 +4,6 @@
     <div class="d-flex align-items-center">
     <div class="w-auto">
       <%= profile_img(user.profile_picture, {class: "img-thumb br-round"}) %>
-      <%# <%= image_tag user.profile_picture, class: "img-thumb br-round", alt: "..." %>
     </div>
     <div class="card-body w-100 d-flex justify-content-between align-items-center">
         <div class="">
@@ -12,7 +11,7 @@
           <span class="text-muted tx-sm"><%= user.email %></span>
         </div>
         <div class="">
-          <%= link_to 'Follow', following_index_path(user_id: user.id), method: :post, class: 'btn btn-sm primary-bg rounded-pill text-white px-3' %>
+          <%= follow_btn(user) %>
         </div>
     </div>
   </div>

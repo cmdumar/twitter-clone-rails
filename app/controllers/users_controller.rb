@@ -9,5 +9,6 @@ class UsersController < ApplicationController
     @opinion = Opinion.new
     @opinions = Opinion.where(user_id: @user).includes([:user])
     @follows = User.all.includes({ profile_picture_attachment: :blob }) - @user.following - [@user]
+    @followers = @user.followers
   end
 end

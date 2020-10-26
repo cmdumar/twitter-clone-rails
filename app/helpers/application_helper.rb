@@ -41,4 +41,11 @@ module ApplicationHelper
   def username(current_user)
     content_tag(:h1, current_user.username) if current_user
   end
+
+  def follow_btn(user)
+    return if !current_user.following.where(id: user.id)
+    link_to('Follow', following_index_path(user_id: user.id),
+            method: :post,
+            class: 'btn btn-sm btn-outline-primary rounded-pill px-3')
+  end
 end
