@@ -39,6 +39,10 @@ To get a local copy up and running follow these simple example steps.
 - Rails: 5.2.4
 - Postgres: >=9.5
 
+### Clone the Project
+
+* To clone the project, run `git clone https://github.com/mohammadumar28/twitter-clone-rails.git`
+
 ### Setup
 
 Instal gems with:
@@ -66,8 +70,10 @@ Open `http://localhost:3000/` in your browser.
 
 ### Run tests
 
+* To run tests:
+
 ```
-    rpsec
+    bundle exec rpsec
 ```
 
 ## Authors
@@ -80,6 +86,7 @@ Open `http://localhost:3000/` in your browser.
 
 ## Acknowledgements
 
+* [Gregoire Vella on Behance](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details)
 * [Microverse](https://microverse.org)
 
 ## Contribution
