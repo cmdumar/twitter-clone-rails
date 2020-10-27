@@ -1,4 +1,5 @@
 class FollowingController < ApplicationController
+  before_action :authenticate_user!
   def create
     user = User.find(user_id)
     current_user.follow(user)

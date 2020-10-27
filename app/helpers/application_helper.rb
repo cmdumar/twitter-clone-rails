@@ -3,6 +3,31 @@ module ApplicationHelper
     content_tag(:p, 'Nothing found!') if arg.empty?
   end
 
+  def nav_btn
+    if current_user
+      edit = content_tag :li, :class => "nav-item mr-3" do
+        link_to 'Edit Profile', edit_user_registration_path(current_user), class: "btn btn-sm bg-dark-blue text-white"
+      end
+      user = content_tag :li, :class => "nav-item mr-3" do
+        link_to current_user.username, "/users/#{current_user.id}", class: "btn btn-sm bg-dark-blue text-white"
+      end
+      sign_out = content_tag :li, :class => "nav-item" do
+        link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm text-white"
+      end
+
+      edit + user + sign_out
+    else
+      sign_up = content_tag :li, :class => "nav-item mr-2" do
+        link_to 'Sign up', new_user_registration_path, class: "btn btn-sm btn-dark text-white"
+      end
+      sign_in = content_tag :li, :class => "nav-item" do
+        link_to 'Sign in', new_user_session_path, class: "btn btn-sm btn-dark text-white"
+      end
+
+      sign_up + sign_in
+    end
+  end
+
   def show_flash(options = {})
     output = ActiveSupport::SafeBuffer.new
 
