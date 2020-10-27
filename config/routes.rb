@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :opinions do
+  resources :opinions, only: [:index, :new, :create] do
     resources :comments, only: [:create]
   end
   devise_for :users
