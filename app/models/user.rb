@@ -6,6 +6,10 @@ class User < ApplicationRecord
   attr_writer :login
   validate :validate_username
 
+  validates :username, presence: true, uniqueness: true, length: { in: 4..16 }
+  validates :email, presence: true, uniqueness: true, length: { maximum: 50 }
+  validates :password, presence: true, length: { minimum: 6, maximum: 35 }
+
   has_one_attached :profile_picture
 
   has_one_attached :cover_picture
