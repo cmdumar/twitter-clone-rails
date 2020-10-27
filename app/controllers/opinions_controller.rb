@@ -1,9 +1,7 @@
 class OpinionsController < ApplicationController
   before_action :set_opinion, only: %i[show edit update destroy]
   before_action :authenticate_user!
-  # before_action :is_admin!, except: [:index, :show]
-  # GET /opinions
-  # GET /opinions.json
+
   def index
     ids = current_user.following.pluck(:id) << current_user.id
     @opinions = Opinion.where(user_id: ids).includes([:user]).order("created_at DESC")
@@ -12,13 +10,10 @@ class OpinionsController < ApplicationController
     @comment = current_user.comments.build
   end
 
-  # GET /opinions/new
   def new
     @opinion = current_user.opinions.build
   end
 
-  # POST /opinions
-  # POST /opinions.json
   def create
     @opinion = current_user.opinions.build(opinion_params)
     ids = current_user.following.pluck(:id) << current_user.id
@@ -38,12 +33,10 @@ class OpinionsController < ApplicationController
   end
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_opinion
     @opinion = Opinion.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def opinion_params
     params.require(:opinion).permit(:content)
   end
