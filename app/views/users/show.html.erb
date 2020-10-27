@@ -28,21 +28,21 @@
         <%= profile_img(@user.profile_picture) %>
       </div>
       <div class="col-12">
-        <p class="text-dark text-center"><%= @user.username %></p>
+        <p class="text-dark text-center font-weight-bold twitter-color tx-big text-uppercase mb-0"><%= @user.username %></p>
         <p class="text-muted text-center text-sm"><%= @user.email %></p>
       </div>
       <div class="col-12 border-top border-bottom">
         <div class="d-flex justify-content-center align-items-center">
           <div class="pt-2 px-3 border-right">
-            <p class="text-center pb-0 mb-0"><%= @user.opinions.count %></p>
+            <p class="text-center pb-0 mb-0 font-weight-bold twitter-color tx-big"><%= @user.opinions.count %></p>
             <p class="text-muted text-center pt-0 mt-0">Opinions</p>
           </div>
           <div class="pt-2 py-0 px-3 border-right">
-            <p class="text-center pb-0 mb-0"><%= @user.following.count %></p>
+            <p class="text-center pb-0 mb-0 font-weight-bold twitter-color tx-big"><%= @user.following.count %></p>
             <p class="text-muted text-center pt-0 mt-0">Following</p>
           </div>
           <div class="pt-2 py-0 px-3">
-            <p class="text-center pb-0 mb-0"><%= @user.followers.count %></p>
+            <p class="text-center pb-0 mb-0 font-weight-bold twitter-color tx-big"><%= @user.followers.count %></p>
             <p class="text-muted text-center pt-0 mt-0">Followers</p>
           </div>
         </div>

@@ -56,4 +56,16 @@ module ApplicationHelper
       end
     end
   end
+
+  def margin_left_zero
+    if !user_signed_in?
+      "ml-0"
+    end
+  end
+
+  def padding_left_zero
+    if !user_signed_in?
+      "pl-0"
+    end
+  end
 end
