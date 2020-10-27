@@ -1,0 +1,9 @@
+<% collection.each do |comment| %>
+  <div class="card mb-2 rounded-sm">
+    <div class="card-body">
+      <p class="font-italic">By <span class='text-muted'><%= comment.user.username %></span></p>
+      <p class="font-weight-bold"><%= comment.text %></p>
+      <p class="text-muted"><%= comment.created_at.strftime("%Y/%m/%d") %></p>
+    </div>
+  </div>
+<% end %>

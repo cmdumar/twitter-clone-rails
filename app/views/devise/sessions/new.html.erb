@@ -1,0 +1,28 @@
+<div class="row p-3">
+  <h3>Login</h3>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+      <div class="col-12 mt-3">
+        <div class="form-group">
+          <%= f.input :login,
+                      required: true,
+                      autofocus: true,
+                      placeholder: "Your username or email" %>
+        </div>
+      <div class="col-12 mt-3">
+        <div class="form-group">
+          <%= f.input :password,
+                      required: true %>
+        </div>
+      </div>
+      <div class="col-12 mt-3">
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= f.button :submit, "Log in", class: "btn primary-bg text-white font-weight-bold rounded-pill px-4 mb-2 mt-2" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="pt-2">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+

@@ -1,0 +1,132 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ */
+
+@import "bootstrap";
+@import "font-awesome";
+
+.twitter-color {
+  color: #192735;
+}
+
+.avatar {
+  position: relative;
+  width: 50%;
+  display: block;
+  margin: 10px auto;
+}
+
+.avatar-aspect-ratio {
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.avatar img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.btn-twitter {
+  min-width: calc(45.08px);
+}
+
+.primary-bg {
+  background-color: #1da1f2 !important;
+}
+
+#logo-font {
+  font-size: 35px;
+}
+
+.menu-icon {
+  font-size: 18px !important;
+}
+
+.cover-image {
+  height: 20vh;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+
+.img-thumb {
+  height: 49px;
+  width: 49px;
+  object-fit: cover;
+}
+
+.profile-img {
+  width: 165px;
+  height: 175px;
+}
+
+.bg-dark-blue {
+  background-color: #15202b;
+}
+
+.border-gray {
+  border: 1px solid #38444d;
+}
+
+.border-right-gray {
+  border-right: 1px solid #38444d;
+}
+
+.pd-15 {
+  padding-left: 215px;
+}
+
+.ml-15 {
+  margin-left: 215px;
+}
+
+.w-15 {
+  width: 215px;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.gray-color {
+  color: #47525d;
+}
+
+.br-round {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.tx-big {
+  font-size: 17px;
+}
+
+.tx-normal {
+  font-size: 15px;
+}
+
+.tx-sm {
+  font-size: 14px;
+}

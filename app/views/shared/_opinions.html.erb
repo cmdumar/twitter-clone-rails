@@ -1,0 +1,22 @@
+<% opinions.each do |opinion| %>
+  <div class="card border-0">
+    <div class="d-flex align-items-center">
+      <div class="w-auto">
+        <%= profile_img(opinion.user.profile_picture, {class: "img-thumb"}) %>
+      </div>
+      <div class="card-body w-100">
+        <p class="mb-2 text-capitalize font-weight-bold">
+          <%= opinion.user.username %>
+        </p>
+        <p class="mb-0 font-weight-light">
+          <%= opinion.content %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <p class="text-muted"><%= opinion.comments.count %> Comments</p>
+    <%= render partial: 'shared/comment', locals: { collection: opinion.comments } %>
+    <%= render partial: 'shared/comment_form', locals: { comment: opinion.comments.new, opinion: opinion } %>
+  </div>
+<% end %>

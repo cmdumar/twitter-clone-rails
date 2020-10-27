@@ -1,0 +1,20 @@
+<div class="row p-4">
+  <div class="col-9 row">
+    <div class="col-12 bg-white p-3 rounded-sm">
+      <div class="">
+        <%= show_flash({class: "alert alert-info"}) %>
+      </div>
+      <%= render partial: 'shared/form', locals: { opinion: @opinion } %>
+    </div>
+    <div class="col-12 bg-white mt-2 p-3 rounded-sm">
+      <p class="text-primary"><%= @opinions.count %> NEW TWEETS</p>
+      <hr class="text-dark">
+      <%= render partial: 'shared/opinions', locals: { opinions: @opinions } %>
+    </div>
+  </div>
+  <div class="col-3 p-3 rounded-sm">
+    <p class="text-muted tx-normal">WHO TO FOLLOW</p>
+    <hr class="text-dark">
+    <%= render partial: 'shared/follows', locals: { users: @follows } %>
+  </div>
+</div>
