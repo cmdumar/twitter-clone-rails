@@ -43,9 +43,17 @@ module ApplicationHelper
   end
 
   def follow_btn(user)
-    return if !current_user.following.where(id: user.id)
-    link_to('Follow', following_index_path(user_id: user.id),
-            method: :post,
-            class: 'btn btn-sm btn-outline-primary rounded-pill px-3')
+    if current_user.id != user.id
+      if !current_user.following?(user)
+        link_to('Follow', following_index_path(user_id: user.id),
+                method: :post,
+                class: 'btn btn-sm btn-outline-primary rounded-pill px-3')
+      else
+        form_for(current_user.active_relationships.find_by(followed_id: user.id), 
+                html: {method: :delete}) do |f|
+                f.submit "Unfollow", class: 'btn btn-sm btn-outline-primary rounded-pill px-3'
+        end
+      end
+    end
   end
 end

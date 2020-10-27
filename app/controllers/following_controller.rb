@@ -4,4 +4,10 @@ class FollowingController < ApplicationController
     current_user.follow(user)
     redirect_back(fallback_location: root_path)
   end
+
+  def destroy
+    user = Following.find(params[:id]).followed
+    current_user.unfollow(user)
+    redirect_back(fallback_location: root_path)
+  end
 end
