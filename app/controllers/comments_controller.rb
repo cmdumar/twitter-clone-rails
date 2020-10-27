@@ -7,24 +7,17 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
-  # GET /comments/1
-  # GET /comments/1.json
-  def show; end
-
   # GET /comments/new
   def new
     @comment = Comment.new
   end
-
-  # GET /comments/1/edit
-  def edit; end
 
   # POST /comments
   # POST /comments.json
   def create
     @comment = Comment.create(comment_params)
     @comment.user = current_user
-    @comment.opinion_id = params[:opinion_id]
+    @comment.opinion_id = opinion_id
 
     respond_to do |format|
       if @comment.save
@@ -68,6 +61,10 @@ class CommentsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def opinion_id
+    params[:opinion_id]
   end
 
   # Only allow a list of trusted parameters through.
