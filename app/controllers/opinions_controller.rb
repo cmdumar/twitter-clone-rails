@@ -4,7 +4,7 @@ class OpinionsController < ApplicationController
 
   def index
     ids = current_user.following.pluck(:id) << current_user.id
-    @opinions = Opinion.where(user_id: ids).includes([:user]).order("created_at DESC")
+    @opinions = Opinion.where(user_id: ids).includes([:user]).order('created_at DESC')
     @opinion = Opinion.new
     @follows = User.all.includes({ profile_picture_attachment: :blob }) - current_user.following - [current_user]
     @comment = current_user.comments.build
@@ -31,6 +31,7 @@ class OpinionsController < ApplicationController
       end
     end
   end
+
   private
 
   def set_opinion

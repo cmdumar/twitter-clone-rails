@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
   def id
     params[:id]
   end
