@@ -1,6 +1,6 @@
 # Twitter
 
-> Twitter Redesign/Clone with Ruby on Rails. This project is an attempt to clone all the features from Twitter, like tweeting, comments, following. Users can also upload profile image and cover photo. The design is based on a designer's personal take on Twitter UI.
+Twitter Redesign/Clone with Ruby on Rails. This project is an attempt to clone all the features from Twitter, like tweeting, comments, following. Users can also upload profile image and cover photo. The design is based on a designer's personal take on Twitter UI.
 
 ![screeshot](./public/screenshot.png)
 
